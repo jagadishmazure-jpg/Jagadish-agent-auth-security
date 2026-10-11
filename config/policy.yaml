@@ -1,0 +1,15 @@
+# Auth policy for the Northglass demo. Loaded by docs and tests as a reference;
+# runtime defaults live in the Python modules.
+access_token_ttl_seconds: 300
+refresh_token_ttl_seconds: 604800
+clock_skew_seconds: 30
+allowed_algs: [RS256]
+session_idle_seconds: 1800
+session_absolute_seconds: 28800
+high_risk_scopes:
+  - loans:decide
+  - admin:users
+  - admin:keys
+  - credit:write
+dpop_required_for:
+  - api://northglass-loan-api
