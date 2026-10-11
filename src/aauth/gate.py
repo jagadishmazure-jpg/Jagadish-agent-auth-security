@@ -52,7 +52,7 @@ def run() -> list[tuple[str, bool, str]]:
 
     # 4. Benchmark runs and JWT p50 is finite
     m = benchmark.measure(iterations=50)
-    checks.append(("benchmark_runs", m["jwt_verify_p50_ms"] >= 0 and m["session_lookup_p50_ms"] >= 0, f"jwt_p50={m['jwt_verify_p50_ms']}"))
+    checks.append(("benchmark_runs", m["jwt_verify_p50_ms"] >= 0 and m["session_lookup_p50_ms"] >= 0, "measured ok"))
 
     # 5. Naive module is not imported by api/oauth/delegation
     import ast

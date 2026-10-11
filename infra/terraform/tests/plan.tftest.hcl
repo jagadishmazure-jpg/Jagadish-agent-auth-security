@@ -14,7 +14,7 @@ override_resource {
   target          = azurerm_api_management.this
   override_during = plan
   values = {
-    id = "/subscriptions/00000000-0000-0000-0000-000000000002/resourceGroups/rg/providers/Microsoft.ApiManagement/service/apim"
+    id       = "/subscriptions/00000000-0000-0000-0000-000000000002/resourceGroups/rg/providers/Microsoft.ApiManagement/service/apim"
     identity = [{ principal_id = "00000000-0000-0000-0000-000000000099", tenant_id = "00000000-0000-0000-0000-000000000001", type = "SystemAssigned", identity_ids = [] }]
   }
 }

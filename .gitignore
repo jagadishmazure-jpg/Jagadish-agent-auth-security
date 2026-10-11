@@ -14,6 +14,7 @@ sbom*.json
 evidence/*.json
 evidence/*.txt
 !evidence/.gitkeep
+!evidence/benchmark.json
 .terraform/
 *.tfstate
 *.tfstate.*

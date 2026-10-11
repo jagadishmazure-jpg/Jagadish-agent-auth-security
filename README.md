@@ -65,15 +65,15 @@ pytest -q
 
 ## JWT vs sessions (measured)
 
-<!-- output: benchmark --iterations 80 -->
+<!-- output: benchmark --evidence evidence/benchmark.json -->
 ```text
 Store: in-memory dict; iterations: 80; host microbench (not a capacity plan).
 
 | Dimension | JWT (stateless-ish) | Server session (stateful) | Notes |
 |---|---|---|---|
 | Scalability | Local verify; no shared store required for authZ check | Needs shared session store across 5+ instances | JWT still needs a denylist/version store for revocation |
-| Performance (p50 verify) | 0.1122 ms (9060 ops/s) | 0.0139 ms (123520 ops/s) | Store=in-memory dict; single-process microbench |
-| Revocation | Denylist hit in 0.4412 ms | Delete sid in 0.01 ms | Without a denylist, JWT revocation waits for TTL |
+| Performance (p50 verify) | 0.1085 ms (8772 ops/s) | 0.0077 ms (129248 ops/s) | Store=in-memory dict; single-process microbench |
+| Revocation | Denylist hit in 0.441 ms | Delete sid in 0.0099 ms | Without a denylist, JWT revocation waits for TTL |
 | Session / claim updates | immediate reject after tv bump (else up to access-token TTL) | next request sees new roles | Token version (tv) claim closes the JWT stale window |
 | Data security | claims readable without key (sub=u-ava, roles=['loan.officer']) | opaque sid; data only in server store | JWTs are signed, not encrypted; keep PII out of claims (or use JWE) |
 | Implementation complexity | JWKS, rotation, denylist, DPoP optional | Cookie flags, CSRF, fixation, idle/absolute TTL | Both need careful hardening |

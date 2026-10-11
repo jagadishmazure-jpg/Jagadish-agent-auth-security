@@ -113,7 +113,7 @@ PASS  jwks_active_key: 1 keys
 PASS  attack_suite_hardened: 14/14 blocked
 PASS  delegation_blocks_overreach: no_overlapping_scopes
 PASS  delegation_subset: exceeded=[]
-PASS  benchmark_runs: jwt_p50=0.1133
+PASS  benchmark_runs: measured ok
 PASS  naive_not_in_default_paths: offenders=[]
 
 6/6 checks passed

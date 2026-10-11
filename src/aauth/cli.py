@@ -23,7 +23,12 @@ def cmd_company(_: argparse.Namespace) -> int:
 
 
 def cmd_benchmark(ns: argparse.Namespace) -> int:
-    m = benchmark.measure(iterations=ns.iterations, redis=ns.redis)
+    if getattr(ns, "evidence", None):
+        from pathlib import Path
+
+        m = json.loads(Path(ns.evidence).read_text())
+    else:
+        m = benchmark.measure(iterations=ns.iterations, redis=ns.redis)
     print(benchmark.render_markdown(m))
     if ns.json:
         print(json.dumps(m, indent=2))
@@ -118,6 +123,7 @@ def build_parser() -> argparse.ArgumentParser:
     b.add_argument("--iterations", type=int, default=200)
     b.add_argument("--redis", action="store_true", help="use fakeredis backend")
     b.add_argument("--json", action="store_true")
+    b.add_argument("--evidence", help="print a previously captured run (stable for docs)")
     b.set_defaults(func=cmd_benchmark)
     sub.add_parser("attacks", help="run the attack matrix").set_defaults(func=cmd_attacks)
     sub.add_parser("gate", help="release gate").set_defaults(func=cmd_gate)

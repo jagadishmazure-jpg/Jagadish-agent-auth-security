@@ -1,3 +1,9 @@
 # Bicep
 
-Mirrors the Terraform controls: resource group, Log Analytics (Entra-only), Key Vault (RBAC, purge protection in prod), APIM with `validate-azure-ad-token`, and a Key Vault Secrets User assignment for APIM. Entra app registrations stay in Terraform (`azuread` provider). Nothing here has been deployed.
+Mirrors the Terraform controls. Nothing here has been deployed.
+
+| File | What it does |
+|---|---|
+| `main.bicep` | Subscription-scoped entry: resource group + platform module |
+| `main.parameters.json` | Dev parameter file |
+| `modules/` | Platform module (Log Analytics, Key Vault, APIM) |

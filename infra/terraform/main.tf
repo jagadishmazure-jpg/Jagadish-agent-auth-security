@@ -7,24 +7,24 @@ resource "azurerm_resource_group" "this" {
 }
 
 resource "azurerm_log_analytics_workspace" "this" {
-  name                       = "log-${local.name}"
-  location                   = azurerm_resource_group.this.location
-  resource_group_name        = azurerm_resource_group.this.name
-  sku                        = "PerGB2018"
-  retention_in_days          = 30
+  name                         = "log-${local.name}"
+  location                     = azurerm_resource_group.this.location
+  resource_group_name          = azurerm_resource_group.this.name
+  sku                          = "PerGB2018"
+  retention_in_days            = 30
   local_authentication_enabled = false
-  tags                       = local.tags
+  tags                         = local.tags
 }
 
 resource "azurerm_key_vault" "this" {
-  name                       = "kv${replace(local.name, "-", "")}"
-  location                   = azurerm_resource_group.this.location
-  resource_group_name        = azurerm_resource_group.this.name
-  tenant_id                  = data.azurerm_client_config.current.tenant_id
-  sku_name                   = "standard"
-  soft_delete_retention_days = var.environment == "prod" ? 90 : 7
-  purge_protection_enabled   = var.environment == "prod"
-  enable_rbac_authorization  = true
+  name                          = "kv${replace(local.name, "-", "")}"
+  location                      = azurerm_resource_group.this.location
+  resource_group_name           = azurerm_resource_group.this.name
+  tenant_id                     = data.azurerm_client_config.current.tenant_id
+  sku_name                      = "standard"
+  soft_delete_retention_days    = var.environment == "prod" ? 90 : 7
+  purge_protection_enabled      = var.environment == "prod"
+  enable_rbac_authorization     = true
   public_network_access_enabled = !var.private_networking
   network_acls {
     default_action = var.private_networking ? "Deny" : "Allow"
@@ -51,13 +51,13 @@ resource "azurerm_api_management" "this" {
 }
 
 resource "azurerm_api_management_api" "loans" {
-  name                = "northglass-loans"
-  resource_group_name = azurerm_resource_group.this.name
-  api_management_name = azurerm_api_management.this.name
-  revision            = "1"
-  display_name        = "Northglass Loan API"
-  path                = "loans"
-  protocols           = ["https"]
+  name                  = "northglass-loans"
+  resource_group_name   = azurerm_resource_group.this.name
+  api_management_name   = azurerm_api_management.this.name
+  revision              = "1"
+  display_name          = "Northglass Loan API"
+  path                  = "loans"
+  protocols             = ["https"]
   subscription_required = false
 }
 

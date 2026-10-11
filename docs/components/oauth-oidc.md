@@ -53,7 +53,7 @@ def build_demo_server(ring: KeyRing, store: AuthStore) -> OAuthServer:
     )
     for p in COMPANY.principals.values():
         if p.kind == "user":
-            srv.register_user(p.id, password=f"pass-{p.id}", roles=list(p.roles), scopes=list(p.scopes) + ["openid", "profile"])
+            srv.register_user(p.id, password=f"pass-{p.id}", roles=list(p.roles), scopes=[*list(p.scopes), "openid", "profile"])
     return srv
 ```
 <!-- /code -->

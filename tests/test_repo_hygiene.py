@@ -167,7 +167,7 @@ def test_no_secrets_or_real_identifiers():
     # Allow all-zero prefix demo GUIDs and the Key Vault role id
     bad = [
         re.compile(p, re.I)
-        for p in (r"AccountKey=", r"-----BEGIN", r"client_conf\s*=", r"@gmail\.com", r"SharedAccessSignature=", r"AKIA[0-9A-Z]{16}")
+        for p in (r"AccountKey=", r"-----BEGIN", r"client_secret\s*=", r"@gmail\.com", r"SharedAccessSignature=", r"AKIA[0-9A-Z]{16}")
     ]
     for p in TEXT_FILES:
         if p.name == "test_repo_hygiene.py":

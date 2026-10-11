@@ -1,2 +1,2 @@
-environment = "prod"
+environment        = "prod"
 private_networking = true

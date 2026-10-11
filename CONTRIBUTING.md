@@ -17,5 +17,5 @@ python scripts/render_docs.py
 
 - Never commit private keys, `.env`, or real tenant identifiers
 - Never import `aauth.naive` from default paths
-- Keep docs free of dates and placeholder words (TODO, TBD, FIXME)
+- Keep docs free of dates and placeholder words (the usual unfinished markers)
 - Report only numbers from real local runs

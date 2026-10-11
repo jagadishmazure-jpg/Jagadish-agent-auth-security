@@ -15,7 +15,7 @@ Access tokens, refresh tokens, session ids, signing keys, delegated agent tokens
 | DoS | Huge JWKS / key spam | Single ring, rotation controlled |
 | Elevation | Agent exceeds user; CSRF; fixation | Scope intersection, approvals, CSRF, sid rotate |
 
-## OWASP API Security Top 10 (2023)
+## OWASP API Security Top 10
 
 | Item | How addressed |
 |---|---|

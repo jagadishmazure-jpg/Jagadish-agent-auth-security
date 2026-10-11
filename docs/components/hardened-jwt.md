@@ -94,25 +94,23 @@ Defaults live in the module and in `config/policy.yaml`.
 ## 7. Commands
 
 ```bash
-aauth jwks
+aauth gate
 ```
 
 ## 8. Real output
 
-<!-- output: jwks -->
+<!-- output: gate -->
 ```text
-{
-  "keys": [
-    {
-      "kty": "RSA",
-      "use": "sig",
-      "alg": "RS256",
-      "kid": "ngfs-test-1-1",
-      "n": "sKXlCol__rTg0YYyNDotuT6uI4KuLY0FXkHk3yBoApu8Vhhvz2dk6RH1pcwECSSCunu7ArNVKH4Atcz5bWF7jaU_NiLIe3KHQyOU5l2opsAIDKPZMH_siusaGu0LqOJqYZ5zQrKbdQBZHtKdRs32R5h1_MBN42iU1L12Y4ipDp6MzXL8rXnG-uHlsGlq9RCuBKeBq1aSfgynPNJYsj8_0isVYnSspE_zM16R9M2Z_B8DPMO5FX_AU7s68Rp4_hkqCRYifU68kFC0832_Ynd0X95MbMMOQTRgV39vq2cncQGG_X9gr4W9xqJ_rm74WPPWBQyi8_-Xz4-eUwLmB4ZMWw",
-      "e": "AQAB"
-    }
-  ]
-}
+Auth security release gate
+
+PASS  jwks_active_key: 1 keys
+PASS  attack_suite_hardened: 14/14 blocked
+PASS  delegation_blocks_overreach: no_overlapping_scopes
+PASS  delegation_subset: exceeded=[]
+PASS  benchmark_runs: measured ok
+PASS  naive_not_in_default_paths: offenders=[]
+
+6/6 checks passed
 ```
 <!-- /output -->
 
