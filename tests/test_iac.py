@@ -59,8 +59,8 @@ def test_terraform_tests_use_mocks():
 
 def test_azure_controls():
     t = tf()
-    assert "enable_rbac_authorization  = true" in t or "enable_rbac_authorization = true" in t
-    assert "local_authentication_enabled = false" in t or "local_authentication_enabled  = false" in t
+    assert re.search(r"rbac_authorization_enabled\s*=\s*true", t)
+    assert re.search(r"local_authentication_enabled\s*=\s*false", t)
     assert "validate-jwt" in t
     assert "azuread_application" in t
     assert "azurerm_key_vault" in t and "azurerm_api_management" in t

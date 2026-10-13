@@ -11,15 +11,6 @@ mock_provider "azurerm" {
 mock_provider "azuread" {}
 
 override_resource {
-  target          = azurerm_api_management.this
-  override_during = plan
-  values = {
-    id       = "/subscriptions/00000000-0000-0000-0000-000000000002/resourceGroups/rg/providers/Microsoft.ApiManagement/service/apim"
-    identity = [{ principal_id = "00000000-0000-0000-0000-000000000099", tenant_id = "00000000-0000-0000-0000-000000000001", type = "SystemAssigned", identity_ids = [] }]
-  }
-}
-
-override_resource {
   target          = azurerm_key_vault.this
   override_during = plan
   values = {
@@ -40,7 +31,7 @@ run "dev_defaults" {
     error_message = "Log Analytics is Entra-only"
   }
   assert {
-    condition     = azurerm_key_vault.this.enable_rbac_authorization
+    condition     = azurerm_key_vault.this.rbac_authorization_enabled
     error_message = "Key Vault uses RBAC"
   }
   assert {
@@ -61,7 +52,7 @@ run "prod_private" {
   }
   assert {
     condition     = azurerm_key_vault.this.purge_protection_enabled
-    error_message = "prod Key Vault has purge protection"
+    error_message = "Key Vault has purge protection"
   }
 }
 

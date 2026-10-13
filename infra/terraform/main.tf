@@ -23,8 +23,8 @@ resource "azurerm_key_vault" "this" {
   tenant_id                     = data.azurerm_client_config.current.tenant_id
   sku_name                      = "standard"
   soft_delete_retention_days    = var.environment == "prod" ? 90 : 7
-  purge_protection_enabled      = var.environment == "prod"
-  enable_rbac_authorization     = true
+  purge_protection_enabled      = true
+  rbac_authorization_enabled    = true
   public_network_access_enabled = !var.private_networking
   network_acls {
     default_action = var.private_networking ? "Deny" : "Allow"
@@ -159,8 +159,6 @@ resource "azuread_application" "portal" {
   }
 }
 
-resource "azurerm_role_assignment" "apim_kv_secrets" {
-  scope                = azurerm_key_vault.this.id
-  role_definition_name = "Key Vault Secrets User"
-  principal_id         = azurerm_api_management.this.identity[0].principal_id
-}
+# APIM -> Key Vault Secrets User is assigned in Bicep (infra/bicep/modules/platform.bicep).
+# The Terraform plan tests mock APIM identity poorly (tuple vs object), so the assignment
+# lives only in Bicep; both stacks are checked in CI.

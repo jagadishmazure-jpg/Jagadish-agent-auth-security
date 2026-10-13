@@ -21,7 +21,3 @@ variable "private_networking" {
   default = false
 }
 
-variable "github_repository" {
-  type    = string
-  default = "jagadishmazure-jpg/Jagadish-agent-auth-security"
-}

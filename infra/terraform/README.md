@@ -12,3 +12,4 @@
 | `.tflint.hcl` | Lint config |
 | `envs/` | dev/prod tfvars and backend |
 | `tests/` | Offline plan tests |
+| `.terraform.lock.hcl` | Provider lock file |

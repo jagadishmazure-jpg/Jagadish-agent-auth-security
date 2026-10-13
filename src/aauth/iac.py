@@ -24,7 +24,7 @@ def terraform() -> dict:
             "apim": "azurerm_api_management" in text,
             "log_analytics": "azurerm_log_analytics_workspace" in text,
             "no_secrets": "client_secret" not in text.lower() and "account_key" not in text.lower(),
-            "rbac_kv": "enable_rbac_authorization" in text or "enable_rbac_authorization  = true" in text,
+            "rbac_kv": "rbac_authorization_enabled" in text or "rbac_authorization_enabled  = true" in text,
         },
         "test_runs": (TF / "tests" / "plan.tftest.hcl").read_text().count('run "') if (TF / "tests" / "plan.tftest.hcl").exists() else 0,
     }

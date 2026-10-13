@@ -66,7 +66,7 @@ aauth iac
 
 <!-- output: iac -->
 ```text
-terraform resources: 10; controls: {'key_vault': True, 'entra_apps': True, 'apim': True, 'log_analytics': True, 'no_secrets': True, 'rbac_kv': True}; test runs: 3
+terraform resources: 9; controls: {'key_vault': True, 'entra_apps': True, 'apim': True, 'log_analytics': True, 'no_secrets': True, 'rbac_kv': True}; test runs: 3
 bicep files: 2; controls: {'key_vault': True, 'apim': True, 'log_analytics': True, 'validate_token': True}
 workflow ci.yml: read_only=True pinned=8/8 gated=0
 workflow codeql.yml: read_only=True pinned=3/3 gated=0

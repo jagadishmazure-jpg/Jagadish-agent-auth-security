@@ -10,4 +10,8 @@ skip-check:
   - CKV2_AZURE_32  # Key Vault private endpoint when private_networking = true
   # Covered another way
   - CKV2_AZURE_1   # platform-managed keys; customer-managed keys are a documented upgrade
-  - CKV_AZURE_110  # purge protection is on in prod via soft_delete_retention_days
+  - CKV_AZURE_110  # purge protection is always on; soft_delete_retention_days sets retention
+  # APIM Developer SKU cannot join a VNet; private networking is documented as a Premium upgrade
+  - CKV_AZURE_107  # Developer SKU has no VNet integration; Premium + private_networking is the documented upgrade
+  - CKV_AZURE_174  # public access stays on in demo so validate-jwt can be exercised without a private endpoint
+

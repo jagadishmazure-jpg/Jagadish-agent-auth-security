@@ -39,7 +39,7 @@ def terraform() -> dict:
             "apim": "azurerm_api_management" in text,
             "log_analytics": "azurerm_log_analytics_workspace" in text,
             "no_secrets": "client_secret" not in text.lower() and "account_key" not in text.lower(),
-            "rbac_kv": "enable_rbac_authorization" in text or "enable_rbac_authorization  = true" in text,
+            "rbac_kv": "rbac_authorization_enabled" in text or "rbac_authorization_enabled  = true" in text,
         },
         "test_runs": (TF / "tests" / "plan.tftest.hcl").read_text().count('run "') if (TF / "tests" / "plan.tftest.hcl").exists() else 0,
     }
@@ -60,7 +60,7 @@ aauth iac
 
 <!-- output: iac -->
 ```text
-terraform resources: 10; controls: {'key_vault': True, 'entra_apps': True, 'apim': True, 'log_analytics': True, 'no_secrets': True, 'rbac_kv': True}; test runs: 3
+terraform resources: 9; controls: {'key_vault': True, 'entra_apps': True, 'apim': True, 'log_analytics': True, 'no_secrets': True, 'rbac_kv': True}; test runs: 3
 bicep files: 2; controls: {'key_vault': True, 'apim': True, 'log_analytics': True, 'validate_token': True}
 workflow ci.yml: read_only=True pinned=8/8 gated=0
 workflow codeql.yml: read_only=True pinned=3/3 gated=0
