@@ -7,12 +7,12 @@ license = { text = "MIT" }
 authors = [{ name = "Jagadish Meduri" }]
 requires-python = ">=3.13"
 dependencies = [
-  "fastapi==0.143.0",
+  "fastapi==0.143.1",
   "httpx==0.28.1",
   "pyjwt[crypto]==2.15.1",
   "cryptography==50.0.2",
   "joserfc==1.7.5",
-  "fakeredis==2.39.0",
+  "fakeredis==2.40.0",
   "pyyaml==6.0.3",
   "pydantic>=2.13,<3",
   "agent-framework-core==1.21.0",
