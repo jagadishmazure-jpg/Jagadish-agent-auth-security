@@ -7,20 +7,20 @@ license = { text = "MIT" }
 authors = [{ name = "Jagadish Meduri" }]
 requires-python = ">=3.13"
 dependencies = [
-  "fastapi==0.143.0",
+  "fastapi==0.162.0",
   "httpx==0.28.1",
   "pyjwt[crypto]==2.15.1",
   "cryptography==50.0.2",
-  "joserfc==1.7.5",
-  "fakeredis==2.39.0",
+  "joserfc==1.7.7",
+  "fakeredis==2.40.0",
   "pyyaml==6.0.3",
   "pydantic>=2.13,<3",
-  "agent-framework-core==1.21.0",
+  "agent-framework-core==1.23.0",
   "mcp==2.3.0",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest==9.1.1", "pytest-asyncio==1.4.0", "ruff==0.17.0"]
+dev = ["pytest==9.2.0", "pytest-asyncio==1.4.1", "ruff==0.17.3"]
 entra = ["msal>=1.31,<2", "azure-identity>=1.25,<2"]
 
 [project.scripts]
