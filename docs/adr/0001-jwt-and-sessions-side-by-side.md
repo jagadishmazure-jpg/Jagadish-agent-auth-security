@@ -4,7 +4,7 @@
 
 ## Context
 
-An article table compared JWTs with server sessions across scalability, performance, revocation, updates, data security, complexity, best-for and avoid-if. Recruiters see JWT-only demos often; measuring both is more honest.
+The usual trade-off table compares JWTs with server sessions across scalability, performance, revocation, updates, data security, complexity, best-for and avoid-if. Recruiters see JWT-only demos often; measuring both is more honest.
 
 ## Decision
 

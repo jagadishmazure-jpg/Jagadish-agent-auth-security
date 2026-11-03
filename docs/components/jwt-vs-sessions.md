@@ -1,10 +1,10 @@
 # JWT vs sessions
 
-The article comparison, measured Module: `src/aauth/benchmark.py`.
+The JWT vs sessions comparison, measured Module: `src/aauth/benchmark.py`.
 
 ## 1. Purpose
 
-The article comparison, measured Built for Northglass Financial Services (fictional).
+The JWT vs sessions comparison, measured Built for Northglass Financial Services (fictional).
 
 ## 2. Architecture
 

@@ -1,6 +1,6 @@
 """JWT vs server-session comparison harness.
 
-Measures the rows from the article table for real, on this machine, with an
+Measures the usual JWT-vs-sessions trade-off rows for real, on this machine, with an
 in-memory store and (optionally) fakeredis. Numbers are from the run that
 produced them; they are not portable across hardware. Caveats are attached.
 """
